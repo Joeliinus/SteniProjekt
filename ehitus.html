@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
+    <!-- Määrab dokumendile HTML-5 tähemärkide komplekti -->
     <meta charset="UTF-8">
+
+    <!-- Võtab avaja seadme parameetrid ja kohandab dokumenti vastavalt -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Määrab aknale nime -->
     <title>Materjalide hinna kalkulaator</title>
+
+    <!-- Määrab ära failis esinevate asjade parameetrid/omadused -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,30 +52,41 @@
 </head>
 <body>
 
+<!-- Loob tühja konteineri, millele määratakse pealkiri -->
 <div class="container">
     <h2>Materjalide maksumuse arvutamine</h2>
-    
+
+    <!-- Loob tabeli -->
     <table>
+        <!-- Loob kolmeks jaotatud rea ning määrab neile pealkirjatekstid -->
         <tr>
             <th>Materjal</th>
             <th>Hind (€/tonn)</th>
             <th>Vali kogus (tonnides)</th>
         </tr>
+
+        <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud betooni koguse sisestuse jaoks -->
         <tr>
             <td>Betoon</td>
             <td id="betoon-hind">102</td>
             <td><input type="number" id="betoon-kogus" min="0" step="0.01" value="0"></td>
         </tr>
+
+        <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud sillustiku koguse sisestuse jaoks -->
         <tr>
             <td>Sillustik</td>
             <td id="sillustik-hind">24</td>
             <td><input type="number" id="sillustik-kogus" min="0" step="0.01" value="0"></td>
         </tr>
+
+        <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud liiva koguse sisestuse jaoks -->
         <tr>
             <td>Liiv</td>
             <td id="liiv-hind">14</td>
             <td><input type="number" id="liiv-kogus" min="0" step="0.01" value="0"></td>
         </tr>
+
+        <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud mulla koguse sisestuse jaoks -->
         <tr>
             <td>Muld</td>
             <td id="muld-hind">9</td>
@@ -76,34 +94,43 @@
         </tr>
     </table>
 
+    <!-- Loob nupu, millele määratakse kiri -->
     <button onclick="arvutaKogumaksumus()">Arvuta kogu summa</button>
 
+    <!-- Loob tühja konteineri vastuste jaoks -->
     <div id="vastus"></div>
 </div>
 
+<!-- Siin kuvatakse koodi toimingud -->
 <script>
     function arvutaKogumaksumus() {
+
+        <!-- loob funktsioonile muutujad, mis võtavad tabelist materjalide hinnad -->
         // Hinnad ja kogused
         let betoonHind = parseFloat(document.getElementById("betoon-hind").textContent);
         let sillustikHind = parseFloat(document.getElementById("sillustik-hind").textContent);
         let liivHind = parseFloat(document.getElementById("liiv-hind").textContent);
         let muldHind = parseFloat(document.getElementById("muld-hind").textContent);
 
+        <!-- loob funktsioonile muutujad, mis võtavad tabelist kasutaja poolt sisestatud materjalide kogused -->
         // Kasutaja sisestatud kogused
         let betoonKogus = parseFloat(document.getElementById("betoon-kogus").value);
         let sillustikKogus = parseFloat(document.getElementById("sillustik-kogus").value);
         let liivKogus = parseFloat(document.getElementById("liiv-kogus").value);
         let muldKogus = parseFloat(document.getElementById("muld-kogus").value);
 
+        <!-- loob funktsioonile muutujad, mis võtavad eelnevalt funktsioonis loodud hinnad ja kogused ning korrutab need vastavalt materjalile -->
         // Arvutame kogumaksumuse
         let betoonMaksumus = betoonKogus * betoonHind;
         let sillustikMaksumus = sillustikKogus * sillustikHind;
         let liivMaksumus = liivKogus * liivHind;
         let muldMaksumus = muldKogus * muldHind;
 
+        <!-- loob funktsioonile muutuja, mis liidab kokku eelnevalt funksioonis loodud korrutised -->
         // Summa
         let kogumaksumus = betoonMaksumus + sillustikMaksumus + liivMaksumus + muldMaksumus;
 
+        <!-- võtab eelnevalt funktsioonis loodud liidetise ehk materjalide summa ning väljastab selle kasutajale loetavas vormis -->
         // Kuvame vastuse
         document.getElementById("vastus").textContent = `Hind: ${kogumaksumus.toFixed(2)} €`;
     }
