@@ -1,11 +1,17 @@
+<!-- Dokumendi tüüp on HTML -->
 <!DOCTYPE html>
+
+<!-- Määrad ära lehekülje keele -->
 <html lang="et">
+
+<!-- Koodi peatüüp -->
 <head>
+
     <!-- Määrab dokumendile HTML-5 tähemärkide komplekti -->
     <meta charset="UTF-8">
 
     <!-- Võtab avaja seadme parameetrid ja kohandab dokumenti vastavalt -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Määrab aknale nime -->
     <title>Materjalide hinna kalkulaator</title>
@@ -48,8 +54,11 @@
             margin-top: 20px;
             font-size: 1.2em;
         }
-    </style>
-</head>
+
+    </style> <!--stiiliala lõpp-->
+</head> <!--peatüübi lõpp-->
+
+<!-- Koodi kehatüüp -->
 <body>
 
 <!-- Loob tühja konteineri, millele määratakse pealkiri -->
@@ -63,43 +72,43 @@
             <th>Materjal</th>
             <th>Hind (€/tonn)</th>
             <th>Vali kogus (tonnides)</th>
-        </tr>
+        </tr> <!--rea lõpp-->
 
         <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud betooni koguse sisestuse jaoks -->
         <tr>
             <td>Betoon</td>
             <td id="betoon-hind">102</td>
-            <td><input type="number" id="betoon-kogus" min="0" step="0.01" value="0"></td>
-        </tr>
+            <td><input id="betoon-kogus" min="0" step="0.01" type="number" value="0"></td>
+        </tr> <!--rea lõpp-->
 
         <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud sillustiku koguse sisestuse jaoks -->
         <tr>
             <td>Sillustik</td>
             <td id="sillustik-hind">24</td>
-            <td><input type="number" id="sillustik-kogus" min="0" step="0.01" value="0"></td>
-        </tr>
+            <td><input id="sillustik-kogus" min="0" step="0.01" type="number" value="0"></td>
+        </tr> <!--rea lõpp-->
 
         <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud liiva koguse sisestuse jaoks -->
         <tr>
             <td>Liiv</td>
             <td id="liiv-hind">14</td>
-            <td><input type="number" id="liiv-kogus" min="0" step="0.01" value="0"></td>
-        </tr>
+            <td><input id="liiv-kogus" min="0" step="0.01" type="number" value="0"></td>
+        </tr> <!--rea lõpp-->
 
         <!-- Loob kolmeks jaotatud rea materjali ja selle hinnaga, kus viimane veerg on määratud mulla koguse sisestuse jaoks -->
         <tr>
             <td>Muld</td>
             <td id="muld-hind">9</td>
-            <td><input type="number" id="muld-kogus" min="0" step="0.01" value="0"></td>
-        </tr>
-    </table>
+            <td><input id="muld-kogus" min="0" step="0.01" type="number" value="0"></td>
+        </tr> <!--rea lõpp-->
+    </table> <!--tabeli lõpp-->
 
     <!-- Loob nupu, millele määratakse kiri -->
     <button onclick="arvutaKogumaksumus()">Arvuta kogu summa</button>
 
     <!-- Loob tühja konteineri vastuste jaoks -->
     <div id="vastus"></div>
-</div>
+</div> <!--konteineri lõpp-->
 
 <!-- Siin kuvatakse koodi toimingud -->
 <script>
@@ -134,7 +143,8 @@
         // Kuvame vastuse
         document.getElementById("vastus").textContent = `Hind: ${kogumaksumus.toFixed(2)} €`;
     }
-</script>
 
-</body>
-</html>
+</script> <!--toiminguteala lõpp-->
+
+</body> <!--kehatüübi lõpp-->
+</html> <!--HTMLi lõpp-->
